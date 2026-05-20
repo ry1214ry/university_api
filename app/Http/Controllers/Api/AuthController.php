@@ -9,9 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    /**
-     * Register User
-     */
+
     public function register(Request $request)
     {
         $request->validate([
@@ -68,9 +66,6 @@ class AuthController extends Controller
         ], 200);
     }
 
-    /**
-     * User Profile
-     */
     public function profile(Request $request)
     {
         return response()->json([

@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
 {
-    /**
-     * Display all departments
-     */
+    
     public function index(Request $request)
     {
         $search = $request->search;
@@ -29,9 +27,7 @@ class DepartmentController extends Controller
         ], 200);
     }
 
-    /**
-     * Store new department
-     */
+    
     public function store(Request $request)
     {
         $request->validate([
@@ -53,9 +49,7 @@ class DepartmentController extends Controller
         ], 201);
     }
 
-    /**
-     * Show single department
-     */
+    
     public function show(string $id)
     {
         $department = Department::with([
@@ -111,9 +105,6 @@ class DepartmentController extends Controller
         ], 200);
     }
 
-    /**
-     * Delete department
-     */
     public function destroy(string $id)
     {
         $department = Department::find($id);

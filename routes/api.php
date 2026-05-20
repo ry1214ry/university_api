@@ -15,15 +15,17 @@ use App\Http\Controllers\ResultController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\DashboardController;
 
+Route::get('/dashboard/statistics', [
+        DashboardController::class,
+        'statistics'
+    ]);
+
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/profile', [AuthController::class, 'profile']);
     Route::post('/logout', [AuthController::class, 'logout']);
-    Route::get('/dashboard/statistics', [
-        DashboardController::class,
-        'statistics'
-    ]);
+    
     Route::apiResource('students', StudentController::class);
     Route::apiResource('teachers', TeacherController::class);
     Route::apiResource('departments', DepartmentController::class);
